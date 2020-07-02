@@ -4,6 +4,11 @@
     path: "{{ awscli_install_dir }}"
   register: install_path_stat
 
+- name: Ensure unzip exists
+  yum:
+    name: unzip
+    state: present
+
 - name: Download AWS CLI
   get_url:
     url: "{{ awscli_installer_download }}"
