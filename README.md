@@ -56,6 +56,21 @@ None.
   
     aws s3 ls s3://<bucket_name> --profile my_profile_name
 
+  List/CopyRemove Examples
+  
+    aws s3 ls s3://<bucket_name>/
+    aws s3 cp <local_file_path> s3://<bucket_name>/
+    aws s3 rm s3://<bucket_name>/<object_key_id_file_path>
+
+  List object versions
+  
+    aws s3api list-object-versions --bucket <bucket_name> --prefix <object_key_id_file_path>
+  
+  Delete object version (with and without governance bypass)
+
+    aws s3api delete-object --bucket <bucket_name> --key <object_key_id_file_path> --version-id "<version_id>"
+    aws s3api delete-object --bucket <bucket_name> --key <object_key_id_file_path> --version-id "<version_id>" --bypass-governance-retention
+
 ## License
 
 This work is licensed under the MIT license. See LICENSE file for details.
